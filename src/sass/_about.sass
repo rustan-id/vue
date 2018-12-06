@@ -1,0 +1,38 @@
+.about
+  border: 1px solid transparent
+  position: relative
+  background-color: hsl(113, 28%, 33%)
+  background-size: cover
+  background-position: center
+  background-attachment: fixed
+  padding-bottom: 100px
+  @include mobile-tab
+    // background: #8b9f78 url("../img/board-frame-mini.jpg") no-repeat 0 0
+    // background-size: cover
+    padding-bottom: 30px
+.about__container
+  position: relative
+  padding: 20px 30px 50px 30px
+  @include container( $col-11, $col-9, $col-9, $max-width: 900px )
+  margin: 0 auto
+  margin-top: 100px
+  // overflow: hidden
+  background: #fff
+  // box-shadow: 15px 10px 10px 2px rgba(0,0,0,.2)
+  @include mobile-tab
+    margin-top: 50px
+    padding: 20px 10px
+.about__title
+  padding: 0px 0 20px 0
+  width: 100%
+  color: $color-dark
+.about__item
+  width: 100%
+  background: transparent
+  border-radius: 10px
+  border-bottom: 2px solid $color-dark
+  margin-bottom: 40px
+.about__desk h4
+  margin-bottom: 0
+  text-transform: none
+

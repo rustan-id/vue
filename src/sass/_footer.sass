@@ -1,0 +1,24 @@
+.footer
+  position: relative
+  z-index: 3
+  background-color: #ffffff
+  border-top: 1px solid $color-dark
+  display: flex
+  margin-top: 400px
+  height: 50px
+.footer__logo
+  @include container( $col-12, $col-11, $col-10, $max-width: 1100px )
+  color: darkgreen
+  font-weight: bold
+  width: $col-9
+  margin-right: auto
+  display: flex
+  //flex-direction: row
+  justify-content: space-between  
+  a
+    align-self: center
+    display: block    
+  p
+    display: block
+    text-align: center
+    align-self: center

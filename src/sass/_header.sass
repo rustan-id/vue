@@ -1,0 +1,21 @@
+.header
+  width: 100%
+  display: flex
+  position: fixed
+  flex-wrap: wrap
+  top: 0
+  z-index: 6
+  width: 100%
+  height: 60px
+  font-family: $font-base 
+  background-color: #fff
+  border-bottom: 1px solid $color-main
+
+.header__top   
+  height: 60px    
+  @include container( $col-12, $col-11, $col-10, 1100px )
+  @include grid
+  flex-wrap: nowrap
+  z-index: 4 
+.header__top .router-link-active
+  display: flex

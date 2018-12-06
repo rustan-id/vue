@@ -1,0 +1,93 @@
+@mixin mobile
+  @media (max-width: 480px)
+    @content
+
+@mixin tab
+  @media (min-width: 480px) and (max-width: 840px)
+    @content
+
+@mixin desk
+  @media (min-width: 841px)
+    @content
+
+@mixin mobile-tab
+  @media (max-width: 840px)
+    @content
+
+@mixin tab-desk
+  @media (min-width: 480px)
+    @content
+
+@mixin container( $mobile-container: $col-11, $tab-container: $col-11, $desk-container: $col-10, $max-width: 1100px)
+  width: $mobile-container
+  margin: 0 auto
+  @include tab
+    width: $tab-container
+  @include desk
+    width: $desk-container
+    max-width: $max-width
+
+@mixin grid ($justify: space-between )
+  display: flex
+  flex-wrap: wrap
+  margin: 0 auto
+  justify-content: $justify
+
+@mixin font-size-adaptive( $font-mobile, $font-tab, $font-desk )
+  font-size: $font-mobile
+  @include tab
+    font-size: $font-tab
+  @include desk
+    font-size: $font-desk
+
+@mixin btn-main
+  display: flex
+  align-items: center
+  justify-content: center
+  text-transform: lowercase
+  color: #fff
+  text-align: center
+  border-radius: 2px
+  font-family: $font-load
+  letter-spacing: 1px
+  font-weight: bold
+  cursor: pointer
+  padding: 5px
+  @include mobile
+    width: $col-12
+  @include desk
+    padding: 10px
+    font-size: $font-size-h4
+  font-size: $font-size-h5
+  background-color: $color-main
+  border: 1px solid $color-main
+  box-shadow: 0 0 40px 40px $color-main inset
+  transition: all 300ms ease-in-out
+  &:hover
+    box-shadow: 0 0 4px 0 $color-main inset
+    background-color: #fff
+    color: darken($color-main, 5%)
+  &:active
+    box-shadow: 0 0 5px 2px $color-main
+
+
+  // &:hover
+  //   background-color: darken( $color-second, 0%)
+  // &:active
+  //   box-shadow: 0 0 1px 2px $color-main
+
+
+@mixin link-main ( $transform: capitalize )
+  display: flex
+  align-items: center
+  justify-content: center
+  text-transform: $transform
+  // border-radius: 2px
+  // font-weight: bold
+  text-decoration: underline
+  color: darken($color-main, 15%)
+  transition: 0.3s linear all
+  &:hover,
+  &:active
+    // text-decoration: none
+    transition: 0.3s linear all

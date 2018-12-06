@@ -1,0 +1,79 @@
+.newProBg
+  background-color: orange
+.new-color
+  color: darkblue
+.project
+  // display: flex
+  border-top: 3px solid $color-dark
+  padding-bottom: 40px
+.project__images
+  display: flex
+  justify-content: center
+  border: 1px solid transparent
+  margin-bottom: 30px
+  @include mobile-tab
+    flex-wrap: wrap
+.project__img
+    padding: 10px
+    width: $col-6
+    @include mobile-tab
+      width: 100%
+    p
+      text-align: center
+      color: $color-dark
+      font-weight: bold
+      text-transform: uppercase
+.project__smeta
+  display: table
+  @include container ($col-12, $col-9, $col-9, $max-width: 700px)
+  table
+    // display: table
+    // border: 1px solid green
+    text-align: center
+    width: 100%  
+    caption
+      margin: 50px 0 30px 0
+      color: $color-dark
+      text-transform: uppercase
+      font-weight: bold
+      font-size: $font-size-h1
+    tr 
+      width: $col-12
+    th
+      font-size: $font-size-h5
+      text-transform: uppercase
+      background: $color-dark
+      color: #fff
+      height: 60px
+      padding: 0 5px
+    td
+      font-size: $font-size-h3
+      line-height: $line-height-h3
+      height: 40px
+      text-transform: lowercase
+    
+
+
+.project__container
+  align-self: center
+.project__container p
+  position: relative
+  padding: 10px 25px
+  @include mobile-tab
+    padding: 8px
+    margin-bottom: 1*$font-size-base
+  background-color: #fff
+  border-radius: 2px
+  // margin-bottom: 3*$font-size-base
+.project__title
+  
+  font-weight: bold
+  @include container($col-11, $col-10, $col-6)
+  padding: 20px
+h4.project__title
+  color: $color-main2
+  // line-height-h6
+  
+h2.project__title 
+  border-bottom: 3px solid $color-dark
+  font-size: $font-size-h1
