@@ -14,3 +14,17 @@ local_dir: dist
 
 notifications:
   email: false
+  
+env:
+  global:
+    - CXX=g++-4.8
+
+
+before_install:
+  - npm install -g node-gyp
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-5
