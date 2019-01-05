@@ -1,6 +1,6 @@
-<template>    
+<template>
   <form class="review-form" @submit.prevent="onSubmit">
-      
+
     <p class="error" v-if="errors.length">
       <b>Заполните, пожалуйста, недостающие поля:</b>
       <ul>
@@ -12,12 +12,12 @@
       <label for="name">Имя:</label>
       <input id="name" v-model="name">
     </p>
-    
+
     <p>
-      <label for="review">Предложение/комментарий:</label>      
+      <label for="review">Предложение/комментарий:</label>
       <textarea id="review" v-model="review"></textarea>
     </p>
-    
+
     <p>
       <label for="rating">Оценка проекта:</label>
       <select id="rating" v-model.number="rating">
@@ -38,12 +38,12 @@
       Маловероятно
       <input type="radio" value="No" v-model="recommend"/>
     </label>
-        
+
     <p>
-      <input type="submit" value="Отправить">  
-    </p>    
-      
-  </form> 
+      <input type="submit" value="Отправить">
+    </p>
+
+  </form>
 </template>
 
 <script>
@@ -82,10 +82,5 @@
   };
 </script>
 
-<style lang="sass" scoped>  
-  @import "../../sass/_variables.sass"
-  @import "../../sass/_mixins.sass"
-  @import "../../sass/_base.sass"
-
-
+<style lang="sass" scoped>
 </style>

@@ -1,0 +1,48 @@
+.links
+  position: relative
+  display: flex
+  justify-content: space-between
+  // .active
+  //   background-color: red
+.links__text
+  // font-family: $font-load
+  position: relative
+  display: flex
+  margin: auto
+  align-items: center
+  justify-content: center
+  color: $color-dark
+  padding: 10px
+  font-size: $font-size-h5
+  // font-weight: bold
+  background: none
+  outline: none
+  border: none
+  cursor: pointer
+  &:hover
+    color: $color-main
+.links__link--mail
+  display: flex
+  // align-self: center
+  // align-items: center
+  margin-right: 10px
+  // position: absolute
+  background: none
+  border: none
+  outline: none
+  transition: 500ms linear
+  cursor: pointer
+  // top: 6px
+  // left: -40px
+  svg
+    border-radius: 50%
+    .st1
+      transform: translateX(0px)
+      transition: 500ms linear
+  &:hover
+    opacity: 1
+    svg .st1
+      transform: translateX(100px)
+      transition: 500ms linear
+.active
+  background-color: red

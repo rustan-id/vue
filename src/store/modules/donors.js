@@ -8,7 +8,7 @@ const state = {
   user: null,
   users: [],
   // tuser: "test"
-	// list: [] 
+  // list: [] 
 };
 
 // login ({commit}) {
@@ -167,8 +167,8 @@ const getters = {
 };
 
 export default {
-	state,
-	actions,
-	mutations,
-	getters
+  state,
+  actions,
+  mutations,
+  getters
 };

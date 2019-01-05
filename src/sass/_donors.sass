@@ -1,11 +1,30 @@
 .donors
-	display: flex
-.donors__donation,
-.donors__pseudo
-	width: $col-6
-	text-align: center
-	font-size: $font-size-h4
-	height: 50px
+  @include container( $col-11, $col-11, $col-9, $max-width: 900px )
+  margin-bottom: 20px
+.donors__row
+  display: flex
+  justify-content: center
+  width: 100%
+  border-bottom: 1px dashed $color-main
+  &--got-donations
+    background-color: $color-light
+    color: $color-dark
+  &--need-donations
+    background-color: $color-light2
+    color: $color-dark2
+  &--rest-donations
+    background-color: $color-light
+    color: $color-dark
+.donors__cell
+  display: flex
+  justify-content: center
+  align-items: center
+  width: $col-6
+  font-size: $font-size-h5
+  height: 50px
+  text-align: center
+// .donors__row
+
 // .donors__shetinina h1
 //   margin-top: 0
 

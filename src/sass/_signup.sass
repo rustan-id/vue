@@ -1,10 +1,23 @@
-input:invalid:not(:focus):not(:placeholder-shown) 
-	border: 1px solid red
+// input:invalid:not(:focus):not(:placeholder-shown)
+//   border: 1px solid red
 
 .signup,
 .signin
+  @include container( $col-11, $col-8, $col-6, $max-width: 500px )
+  margin-bottom: 20px
+  h1
+    margin-top: 100px
+    color: $color-dark
   p
-    font-size: $font-size-h6  
+    font-size: $font-size-h6
+  .v-label:valid
+    color: green
+.signup .container,
+.signin .container
+  padding: 0
+// .signup__form
+//   width: 100%
+
   // @include container( $col-11, $col-9, $col-9, $max-width: 700px )
 
   // display: flex
@@ -14,26 +27,34 @@ input:invalid:not(:focus):not(:placeholder-shown)
   // input
   //   margin: 10px auto
   //   width: 100%
-  //   height: 40px  
-  //   border: 1px solid grey  
+  //   height: 40px
+  //   border: 1px solid grey
   // select
-  //   border: 1px solid grey 
+  //   border: 1px solid grey
     // &::placeholder
     //   text-align: center
-  button
-    width: 100%
-// .input.invalid input	  
+  // button
+  //   width: 100%
+// .input.invalid input
 //     border: 1px solid red
 //     background-color: pink
 // .input.invalid label
 //     color: red
-
-.signup__btn
+.forgot__question
+  display: block
+  text-align: right
+  margin: 10px 0
+  cursor: pointer
+  &:hover
+    color: $color-main
+.city__btn
+  // display: block
   width: 100%
   background-color: #4caf50 //green
   color: #fff
   padding: 5px
   text-transform: uppercase
+  margin: 20px auto 10px
   &:hover
     background-color: lighten(#4caf50, 5%)
   &:disabled
@@ -57,11 +78,11 @@ input:invalid:not(:focus):not(:placeholder-shown)
 
 
 
-    
-// [tooltip] 
+
+// [tooltip]
 //   position: relative; /* opinion 1 */
 // [tooltip]::before,
-// [tooltip]::after 
+// [tooltip]::after
 //   text-transform: none /* opinion 2 */
 //   font-size: .9em /* opinion 3 */
 //   line-height: 1
@@ -69,13 +90,13 @@ input:invalid:not(:focus):not(:placeholder-shown)
 //   pointer-events: none
 //   position: absolute
 //   display: none
-//   opacity: 0  
-// [tooltip]::before 
+//   opacity: 0
+// [tooltip]::before
 //   content: ''
-//   border: 5px solid transparent  opinion 4 
+//   border: 5px solid transparent  opinion 4
 //   z-index: 1001 /* absurdity 1 */
 
-// [tooltip]::after 
+// [tooltip]::after
 //   content: attr(tooltip)
 //   text-align: center
 //   min-width: 3em
@@ -91,28 +112,28 @@ input:invalid:not(:focus):not(:placeholder-shown)
 //   z-index: 1000
 
 // [tooltip]:hover::before,
-// [tooltip]:hover::after 
+// [tooltip]:hover::after
 //   display: block
 // [tooltip]:not([flow])::before,
-// [tooltip][flow^="up"]::before 
+// [tooltip][flow^="up"]::before
 
 //   // bottom: 100%
 //   border-bottom-width: 0
 //   border-top-color: #333
 
 // [tooltip]:not([flow])::after,
-// [tooltip][flow^="up"]::after 
+// [tooltip][flow^="up"]::after
 //   bottom: calc(100% + 5px)
 
 // [tooltip]:not([flow])::before,
 // [tooltip]:not([flow])::after,
 // [tooltip][flow^="up"]::before,
-// [tooltip][flow^="up"]::after 
+// [tooltip][flow^="up"]::after
 //   left: 50%
 //   transform: translate(-50%, -0.5em)
 
-// @keyframes tooltips-vert 
-//   to 
+// @keyframes tooltips-vert
+//   to
 //     opacity: .9
 //     transform: translate(-50%, 0)
 
@@ -121,5 +142,5 @@ input:invalid:not(:focus):not(:placeholder-shown)
 // [tooltip][flow^="up"]:hover::before,
 // [tooltip][flow^="up"]:hover::after,
 // [tooltip][flow^="down"]:hover::before,
-// [tooltip][flow^="down"]:hover::after 
+// [tooltip][flow^="down"]:hover::after
 //   animation: tooltips-vert 300ms ease-out forwards

@@ -1,38 +1,146 @@
 .about
-  border: 1px solid transparent
-  position: relative
-  background-color: hsl(113, 28%, 33%)
-  background-size: cover
-  background-position: center
-  background-attachment: fixed
-  padding-bottom: 100px
-  @include mobile-tab
+  border-bottom: 1px dashed $color-main
+  margin-bottom: 70px
+  p
+    font-size: $font-size-h6
+    margin: auto
+.about__container
+
+  margin: 0 auto
+.about__row--title
+  font-weight: 400
+  h2
+    width: 100%
+    text-align: center
+.about__row
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  margin: 10px auto
+.about__row-img
+  display: flex
+  height: 200px
+  overflow: hidden
+  width: $col-6
+  // border: 1px solid transparent
+  &--1
+    img
+      align-self: center
+  &--2
+    img
+      align-self: center
+  &--3
+    img
+      align-self: center
+  &--4
+    img
+      align-self: center
+  @include mobile
+    &--1
+      width: $col-12
+      height: 100px
+    &--2
+      display: none
+    &--3
+      width: $col-12
+      height: 100px
+    &--4
+      display: none
+
+.about__row-desc
+  @include container( $col-11, $col-9, $col-9, $max-width: 900px )
+  // display: flex
+  // flex-wrap: wrap
+  // width: $col-12
+  // background-color: lighten($color-light, 2%)
+  background-color: #fff
+  border: 1px solid lighten($color-main, 20%)
+  border-top: 5px solid $color-main
+  margin: 0px auto
+  padding: 10px 10px 30px 10px
+  transform: translateY(20px)
+  h5
+    width: 100%
+    margin-bottom: 1rem
+    color: $color-dark
+
+
+
+
+// .about__row--reg
+//   flex-wrap: wrap
+// .about__row--reg .about__row-img
+//   height: 200px
+//   width: $col-12
+//   display: flex
+//   img
+//     align-self: center
+// .about__row--reg .about__row-desc
+//   width: $col-12
+
+// .about__row--before
+//   flex-wrap: wrap
+// .about__row--before .about__row-img
+//   height: 200px
+//   width: $col-12
+//   display: flex
+//   img
+//     align-self: flex-end
+// .about__row--before .about__row-desc
+//   width: $col-12
+// .about__row--images
+//   height: 130px
+// .about__row--images .about__row-img
+//   display: flex
+//   img
+//     align-self: center
+// .about__row--images .about__row-img:first-child
+//   width: $col-6
+// .about__row--images .about__row-img:last-child
+//   width: $col-6
+
+// .about__row--after
+  // height: 250px
+// .about__row--after .about__row-desc
+//   width: $col-12
+//   border-bottom: 1px dashed $color-main
+// .about__row--after .about__row-img
+//   width: $col-5
+//   display: flex
+//   img
+//     align-self: center
+
+  // border: 1px solid transparent
+  // border-top: 10px solid $color-dark2
+  // position: relative
+  // background-color: hsl(113, 28%, 33%)
+  // background: hsl(113, 28%, 33%)  url("./img/cards/1.jpg") no-repeat
+  // background-size: cover
+  // background-repeat: repeat-x repeat-y
+  // background-position: -100px -100px
+  // background-attachment: fixed
+  // padding-bottom: 100px
+  // @include mobile-tab
     // background: #8b9f78 url("../img/board-frame-mini.jpg") no-repeat 0 0
     // background-size: cover
-    padding-bottom: 30px
-.about__container
-  position: relative
-  padding: 20px 30px 50px 30px
-  @include container( $col-11, $col-9, $col-9, $max-width: 900px )
-  margin: 0 auto
-  margin-top: 100px
+    // padding-bottom: 30px
+
+  // margin-top: 100px
   // overflow: hidden
-  background: #fff
+  // background: #fff
   // box-shadow: 15px 10px 10px 2px rgba(0,0,0,.2)
-  @include mobile-tab
-    margin-top: 50px
-    padding: 20px 10px
-.about__title
-  padding: 0px 0 20px 0
-  width: 100%
-  color: $color-dark
-.about__item
-  width: 100%
-  background: transparent
-  border-radius: 10px
-  border-bottom: 2px solid $color-dark
-  margin-bottom: 40px
-.about__desk h4
-  margin-bottom: 0
-  text-transform: none
+  // @include mobile
+    // margin-top: 50px
+    // padding: 20px 10px
+
+  // color: $color-dark
+// .about__item
+//   width: 100%
+  // background: transparent
+  // border-radius: 10px
+  // border-bottom: 2px solid $color-dark
+  // margin-bottom: 40px
+// .about__desk h4
+//   // margin-bottom: 0
+//   text-transform: none
 

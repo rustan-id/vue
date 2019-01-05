@@ -1,32 +1,22 @@
 <template>
-  <div class="project__container">
-    <h2 class="project__title">Проект №2</h2>
-    <h3 class="project__title">Ремонт баскетбольной площадки</h3>
-    <h4 class="project__title">Период сбора участников: 01.09.18.- 30.09.18.</h4>
+  <div class="project__container project__container--baker">
+    <h2 class="project__title">Проект №1</h2>
+    <h3 class="project__title">Установка 2-х лавочек и укладка плитки по адресу "Baker Street, 221b"</h3>
+    <h4 class="project__title">Период сбора участников: 01.09.19.- 30.09.19.</h4>
     <div class="project__images">
       <div class="project__image">
         <p>Сейчас</p>
         <div class="project__img">
-          <img src="../../img/basket-old-2.jpg" alt="teacher's illustration"/>
+          <img src="../../img/before-bench.jpg" alt="teacher's illustration"/>
         </div>
       </div>
       <div class="project__image">
         <p>Планируемый результат</p>
-        <div class="project__img project__img--basket">
-          <img src="../../img/basket2.jpg" alt="teacher's illustration">
+        <div class="project__img">
+          <img src="../../img/bench.jpg" alt="teacher's illustration">
         </div>
       </div>
     </div>
-    <!-- <div class="project__images">
-      <div class="project__img">
-        <p>Сейчас</p>
-        <img src="../../img/basket-old-2.jpg" alt="teacher's illustration"/>
-      </div>
-      <div class="project__img">
-        <p>Планируемый результат</p>
-        <img src="../../img/basket2.jpg" alt="teacher's illustration">
-      </div>
-    </div> -->
     <div class="project__smeta" >
       <table>
         <caption>Смета</caption>
@@ -36,7 +26,7 @@
           <th>Цена за единицу, &#8364;</th>
           <th>Сумма, &#8364;</th>
         </tr>
-        <tr v-for="row in smetaSchool"
+        <tr v-for="row in smetaBaker"
             :key="row.name">
           <td>{{ row.name }}</td>
           <td>{{ row.num }}</td>
@@ -56,8 +46,11 @@
         </tr>
       </table>
     </div>
+
+    <!-- <a class="button button--details" href="https://1drv.ms/x/s!Aq7rTqq1ai6lgq1cIbz-4Y4KBXr55g">Участвовать</a> -->
   </div>
 </template>
+
 <script>
   export default {
     data() {
@@ -67,7 +60,7 @@
         sumTotal: null,
         num: null,
         price: null,
-        smetaSchool: []
+        smetaBaker: []
         // finalSum: null
         // row: {
         //   num: null,
@@ -79,20 +72,21 @@
     },
     // props: ['rows'],
     created() {
-      this.smetaSchool = this.$store.getters.smetaSchool
       this.$store.dispatch('initSmeta')
+      this.smetaBaker = this.$store.getters.smetaBaker
+
     },
     computed: {
       auth() {
         return this.$store.getters.isAuthenticated
       },
       total() {
-        const smetaSchool = this.$store.getters.smetaSchool
+        const smetaBaker = this.$store.getters.smetaBaker
         // const rows = this.rows;
         // this.smeta = this.$store.getters.smeta
         let sumTotal = 0;
-        for (let i = 0; i < smetaSchool.length; i++ ) {
-          sumTotal = sumTotal + smetaSchool[i].num * smetaSchool[i].price
+        for (let i = 0; i < smetaBaker.length; i++ ) {
+          sumTotal = sumTotal + smetaBaker[i].num * smetaBaker[i].price
         }
         return sumTotal;
       },

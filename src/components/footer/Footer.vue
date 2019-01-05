@@ -1,15 +1,14 @@
 <template>
-	<footer class="footer">
-    <div class="footer__logo">
-      <a>City</a>
+  <footer class="footer">
+    <div class="footer__content">
+      <router-link to="/">
+        <app-logo></app-logo>
+      </router-link>
       <p>Совместное благоустройство</p>
     </div>
   </footer>
 </template>
 
-<style lang="sass">  
-  @import "../../sass/_mixins.sass"
-  @import "../../sass/_variables.sass"
-  @import "../../sass/_base.sass"
-  @import "../../sass/_footer.sass"
+<style lang="sass">
+
 </style>

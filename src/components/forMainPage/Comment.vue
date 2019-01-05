@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<!-- <p>Комментариев еще нет</p> -->
+  <div>
+    <!-- <p>Комментариев еще нет</p> -->
     <p v-if="!reviews.length">Комментариев еще нет</p>
     <ul v-else>
       <li v-for="(review, index) in reviews" :key="index">

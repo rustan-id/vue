@@ -2,63 +2,52 @@
   position: relative
   background-color: #fff
   width: 100%
-  z-index: 3
+  z-index: 1
   border-bottom: 1px solid $color-main
-  transition: 600ms linear
-  transform: translateY(-520px)
+  transition: 300ms ease-in-out
+  transform: translateY(-250px)
 .contacts__show
-  transform: translateY(0px) 
+  transform: translateY(1px)
 .contacts__container
-	position: relative
-	@include container($col-12, $col-11, $col-10, 1100px)
-	display: flex
-	flex-wrap: wrap
-	min-height: 250px
-	padding: 20px 0 0 0
-.contacts__data--mail
-  color: $color-main
+  position: relative
+  @include container($col-12, $col-11, $col-10, 1100px)
+  display: flex
+  flex-wrap: wrap
+  min-height: 250px
+  padding: 20px 0 0 0
 .contacts__data
-	width: 100%
-	display: flex
-	justify-content: center
-	align-items: center
-.whatsapp .contacts__name
-	color: #60d66a
-.viber .contacts__name
-	color: #7C529E
-.telegram .contacts__name
-	color: #1e96c8
+  width: 100%
+  display: flex
+  justify-content: flex-end
+  align-items: center
 .contacts__name
-	position: relative
-	font-weight: 500
-.contacts__details
-	display: block
-	position: relative
-	text-align: center
-	color: $color-base
-	a 
-	  color: $color-base
-.whatsapp .contacts__details,
-.viber .contacts__details,
-.telegram .contacts__details
-	@include font-size-adaptive( 18px, 20px, 22px )
-	width: 73%
-	@include tab
-	  width: 77%
-	@include desk
-	  width: 85%
-	letter-spasing: 0.1rem
-.mail .contacts__details
-  width: 76%
-  @include tab-desk
+  color: $color-dark
+  position: relative
+  font-weight: 400
+.contacts__details,
+a.contacts__details
+  display: block
+  position: relative
+  text-align: center
+  color: $color-base
+  cursor: pointer
+  &:hover
+    color: $color-dark
+  @include font-size-adaptive( 18px, 20px, 22px )
+  width: 73%
+  @include tab
+    width: 77%
+  @include desk
     width: 85%
+  letter-spasing: 0.1rem
+
 
 .contacts__oferta
-	font-size: $font-size-h6*0.7
-	color: $color-base
-	width: 50%
-	text-align: center
-	margin: 10px auto
-	a 
-		text-decoration: underline
-		color: $color-base
+  font-size: $font-size-h6*0.7
+  color: $color-base
+  width: 50%
+  text-align: center
+  margin: 10px auto
+  a
+    text-decoration: underline
+    color: $color-base

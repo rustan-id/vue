@@ -1,6 +1,6 @@
 body
   font-family: $font-base
-  min-height: 100vh
+  // min-height: 100vh
   color: $color-base
   background-color: #fff
   position: relative
@@ -15,6 +15,8 @@ html
 *::before,
 *::after
   box-sizing: inherit
+.main
+  height: 100vh
   // outline: 1px dashed grey
 img
   width: 100%
@@ -28,12 +30,13 @@ a
 h1,h2,h3,h4,h5,h6
   font-family: $font-heading
   font-style: normal
-  font-weight: 700
+  font-weight: 400
   margin: 0 0 1rem 0
   text-align: center
   text-transform: none
 h1,h2
   text-transform: uppercase
+  color: $color-dark
 ul
   padding-left: 25px
 ul li,
@@ -46,14 +49,15 @@ h1
 h2
   font-size: $font-size-h2
   line-height: $line-height-h2
-  margin-top: 2.618rem
+  margin-top: 1.618rem
 h3
   font-size: $font-size-h3
   line-height: $line-height-h3
-  margin-top: 2.618rem
+  margin-top: 1.618rem
 h4
   font-size: $font-size-h4
   line-height: $line-height-h4
+  color: $color-main2
 h5
   font-size: $font-size-h5
   line-height: $line-height-h5
@@ -65,23 +69,23 @@ p
   line-height: $line-height-h5
   width: 100%
 
-.overlay
-  display: block
-  visibility: hidden
-  position: fixed
-  top: 0
-  left: 0
-  z-index: 1
-  width: 100%
-  height: 100%
-  opacity: 0
-  background: rgba(0, 0, 0, 0.63)
-  transition: 1s linear
-.overlay--show
-  display: block
-  visibility: visible
-  opacity: 1
-  transition: 1s linear
+// .overlay
+//   display: block
+//   visibility: hidden
+//   position: fixed
+//   top: 0
+//   left: 0
+//   z-index: 1
+//   width: 100%
+//   height: 100%
+//   opacity: 0
+//   background: rgba(0, 0, 0, 0.63)
+//   transition: 1s linear
+// .overlay--show
+//   display: block
+//   visibility: visible
+//   opacity: 1
+//   transition: 1s linear
 
 
   // text-align: center

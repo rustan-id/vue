@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
-import Vuelidate from 'vuelidate'
+// import Vuelidate from 'vuelidate'
 import 'babel-polyfill'
 import axios from 'axios'
-import globalAxios from 'axios'
+// import globalAxios from 'axios'
 import * as firebase from 'firebase'
 import './plugins/vuetify'
 import App from './App.vue'
@@ -17,15 +17,15 @@ Vue.config.productionTip = false
 
 axios.defaults.baseURL = 'https://vue-city.firebaseio.com'
 const regInterceptor = axios.interceptors.request.use(config => {
-	console.log('Request Interceptor', config)
-	return config
+  console.log('Request Interceptor', config)
+  return config
 })
-const resInterceptor = axios.interceptors.response.use(config => {
-	console.log('Response Interceptor', res)
-	return res
-})
+// const resInterceptor = axios.interceptors.response.use(config => {
+//   console.log('Response Interceptor', res)
+//   return res
+// })
 axios.interceptors.request.eject(regInterceptor)
-axios.interceptors.response.eject(resInterceptor)
+// axios.interceptors.response.eject(resInterceptor)
 
 import Header from './components/header/Header.vue'
 import PageMain from './views/mainPage/PageMain.vue'
@@ -37,10 +37,10 @@ import Comment from './components/forMainPage/Comment.vue'
 import Features from './components/forMainPage/Features.vue'
 import About from './components/forMainPage/About.vue'
 import Pro from './components/projects/Pro.vue'
-import Shetinina from './components/projects/Shetinina.vue'
+import BakerStreet from './components/projects/BakerStreet.vue'
 import School from './components/projects/School.vue'
 import Footer from './components/footer/Footer.vue'
-import DonorsShetinina from './views/donorsPage/DonorsShetinina.vue'
+import Donors from './views/donorsPage/Donors.vue'
 import signup from './views/auth/signup.vue'
 import signin from './views/auth/signin.vue'
 import AlertCmp from './components/shared/Alert.vue'
@@ -62,7 +62,7 @@ Vue.use(Vuetify, {
 })
 
 Vue.config.productionTip = false;
-Vue.use(Vuelidate);
+// Vue.use(Vuelidate);
 
 Vue.component('app-header', Header);
 Vue.component('PageMain', PageMain);
@@ -70,14 +70,14 @@ Vue.component('app-logo', Logo);
 Vue.component('Links', Links);
 Vue.component('Contacts', Contacts);
 Vue.component('ProjectReview', ProjectReview);
-Vue.component('donors-shetinina', DonorsShetinina);
+Vue.component('donors', Donors);
 Vue.component('signup', signup);
 Vue.component('signin', signin);
 Vue.component('Comment', Comment);
 Vue.component('Features', Features );
 Vue.component('About', About);
 Vue.component('Pro', Pro);
-Vue.component('Shetinina', Shetinina);
+Vue.component('app-baker', BakerStreet);
 Vue.component('School', School);
 Vue.component('app-footer', Footer);
 Vue.component('app-alert', AlertCmp);
@@ -87,20 +87,21 @@ new Vue({
   router,
   render: h => h(App),
   created () {
-  	firebase.initializeApp({
-  		apiKey: "AIzaSyDNMxHSzaOvcKd6E8GasiSoIRXlm7k7x_4",
-	    authDomain: "vue-city.firebaseapp.com",
-	    databaseURL: "https://vue-city.firebaseio.com",
-	    projectId: "vue-city",
-	    storageBucket: "vue-city.appspot.com",
-  	})
-  	firebase.auth().onAuthStateChanged((user) =>{
-  		if (user) {
-  			this.$store.dispatch('tryAutoLogin', user)
-  		} else {
-  			this.$store.getters.isAuthenticated
-  		}
-  	})
+    firebase.initializeApp({
+      apiKey: "AIzaSyDNMxHSzaOvcKd6E8GasiSoIRXlm7k7x_4",
+      authDomain: "vue-city.firebaseapp.com",
+      databaseURL: "https://vue-city.firebaseio.com",
+      projectId: "vue-city",
+      storageBucket: "vue-city.appspot.com",
+    })
+    firebase.auth().onAuthStateChanged((user) =>{
+      if (user) {
+        this.$store.dispatch('tryAutoLogin', user)
+      } else {
+        this.$store.getters.isAuthenticated
+      }
+    })
+    firebase.auth().useDeviceLanguage();
   }
 }).$mount('#app')
 
@@ -112,12 +113,12 @@ new Vue({
 //     store: store
 //    //  created() {
 //    //    firebase.initializeApp({
-// 	  //     apiKey: 'AIzaSyDNMxHSzaOvcKd6E8GasiSoIRXlm7k7x_4',
-// 	  //     authDomain: 'vue-city.firebaseapp.com',
-// 	  //     databaseURL: 'https://vue-city.firebaseio.com',
-// 	  //     projectId: 'vue-city',
-// 	  //     storageBucket: 'vue-city.appspot.com'
-// 	  // 	})
-// 	  // }
+//     //     apiKey: 'AIzaSyDNMxHSzaOvcKd6E8GasiSoIRXlm7k7x_4',
+//     //     authDomain: 'vue-city.firebaseapp.com',
+//     //     databaseURL: 'https://vue-city.firebaseio.com',
+//     //     projectId: 'vue-city',
+//     //     storageBucket: 'vue-city.appspot.com'
+//     //   })
+//     // }
 //   })
 // }
