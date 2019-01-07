@@ -1,19 +1,19 @@
 <template>
-  <div class="project__container">
-    <h2 class="project__title">Project №2</h2>
-    <h3 class="project__title">Renovation of basketball court near the school №53</h3>
+  <div class="project__container project__container--baker">
+    <h2 class="project__title">Project №1</h2>
+    <h3 class="project__title">Mounting of 2 benches and laying slabs in the Baker Street</h3>
     <h4 class="project__title">Period of the participants engaging: 01.09.19.- 30.09.19.</h4>
     <div class="project__images">
       <div class="project__image">
         <p>Now</p>
         <div class="project__img">
-          <img src="../../img/basket-old-2.jpg" alt="basketball"/>
+          <img src="../../img/before-bench.jpg" alt="teacher's illustration"/>
         </div>
       </div>
       <div class="project__image">
         <p>Project Preview</p>
-        <div class="project__img project__img--basket">
-          <img src="../../img/basket2.jpg" alt="basketball">
+        <div class="project__img">
+          <img src="../../img/bench.jpg" alt="teacher's illustration">
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
           <th>Price of 1 item, &#8364;</th>
           <th>Sum, &#8364;</th>
         </tr>
-        <tr v-for="row in smetaSchool"
+        <tr v-for="row in smetaBaker"
             :key="row.name">
           <td>{{ row.name }}</td>
           <td>{{ row.num }}</td>
@@ -38,7 +38,8 @@
           <td>10%</td>
           <td></td>
           <td>{{ salary }}</td>
-        </tr><tr>
+        </tr>
+        <tr>
           <td>Final Sum:</td>
           <td></td>
           <td></td>
@@ -48,17 +49,23 @@
     </div>
   </div>
 </template>
+
 <script>
   export default {
+    methods: {
+      multiplication(a,b) {
+        return a * b
+      }
+    },
     computed: {
       auth() {
         return this.$store.getters.isAuthenticated
       },
       total() {
-        const smetaSchool = this.$store.getters.smetaSchool
+        const smetaBaker = this.$store.getters.smetaBaker
         let sumTotal = 0;
-        for (let i = 0; i < smetaSchool.length; i++ ) {
-          sumTotal = sumTotal + smetaSchool[i].num * smetaSchool[i].price
+        for (let i = 0; i < smetaBaker.length; i++ ) {
+          sumTotal = sumTotal + smetaBaker[i].num * smetaBaker[i].price
         }
         return sumTotal;
       },
@@ -69,15 +76,10 @@
         return this.total + this.salary
       }
     },
-    methods: {
-      multiplication(a,b) {
-        return a * b
-      }
-    },
     created() {
-      this.smetaSchool = this.$store.getters.smetaSchool
       this.$store.dispatch('initSmeta')
-    },
+      this.smetaBaker = this.$store.getters.smetaBaker
+    }
   };
 </script>
 

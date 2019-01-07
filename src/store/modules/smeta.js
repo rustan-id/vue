@@ -1,31 +1,34 @@
-import rows from "../../data/smeta-shetinina.js"
+import smetaBaker from "./../../data/smeta-baker.js"
+import smetaSchool from "./../../data/smeta-school.js"
 
 const state = {
-	rows: [] 
+  smetaBaker: [],
+  smetaSchool: []
 };
-
 const mutations = {
-  'SET_ROWS' (state, rows) {
-  	state.rows = rows;
+  'setSmeta' (state, smetaBaker) {
+    state.smetaBaker = smetaBaker;
+    state.smetaSchool = smetaSchool;
   }
 };
-
-const actions = {  
-  initRows: ({commit}) => {
-  	commit('SET_ROWS', rows);
+const actions = {
+  initSmeta: ({commit}) => {
+    commit('setSmeta', smetaBaker, smetaSchool);
   }
 };
-
 const getters = {
-	rows: state => {
-		return state.rows;
-	}
+  smetaBaker(state) {
+    return state.smetaBaker;
+  },
+  smetaSchool(state) {
+    return state.smetaSchool;
+  }
 };
 
 export default {
-	state,
-	actions,
-	mutations,
-	getters
+  state,
+  actions,
+  mutations,
+  getters
 };
 

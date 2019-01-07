@@ -1,12 +1,9 @@
 body
   font-family: $font-base
-  min-height: 100vh
   color: $color-base
   background-color: #fff
   position: relative
   z-index: 3
-// .main
-//   height: 95vh
 html
   box-sizing: border-box
   @include font-size-adaptive(14px,16px,18px)
@@ -15,25 +12,26 @@ html
 *::before,
 *::after
   box-sizing: inherit
-  // outline: 1px dashed grey
+.main
+  height: 100vh
 img
   width: 100%
   max-width: 100%
   height: auto
 q
   line-height: $line-height-h4
-  // font-weight: 600
 a
   text-decoration: none
 h1,h2,h3,h4,h5,h6
   font-family: $font-heading
   font-style: normal
-  font-weight: 700
+  font-weight: 400
   margin: 0 0 1rem 0
   text-align: center
   text-transform: none
 h1,h2
   text-transform: uppercase
+  color: $color-dark
 ul
   padding-left: 25px
 ul li,
@@ -46,14 +44,15 @@ h1
 h2
   font-size: $font-size-h2
   line-height: $line-height-h2
-  margin-top: 2.618rem
+  margin-top: 1.618rem
 h3
   font-size: $font-size-h3
   line-height: $line-height-h3
-  margin-top: 2.618rem
+  margin-top: 1.618rem
 h4
   font-size: $font-size-h4
   line-height: $line-height-h4
+  color: $color-main2
 h5
   font-size: $font-size-h5
   line-height: $line-height-h5
@@ -64,43 +63,15 @@ p
   font-size: $font-size-h5
   line-height: $line-height-h5
   width: 100%
-
-.overlay
-  display: block
-  visibility: hidden
-  position: fixed
-  top: 0
-  left: 0
-  z-index: 1
+.city__btn
   width: 100%
-  height: 100%
-  opacity: 0
-  background: rgba(0, 0, 0, 0.63)
-  transition: 1s linear
-.overlay--show
-  display: block
-  visibility: visible
-  opacity: 1
-  transition: 1s linear
-
-
-  // text-align: center
-
-  // padding: 5px
-  // outline: none
-  // width: $col-8
-  // @include mobile
-  //   width: $col-12
-  // @include desk
-  //   padding: 10px
-  //   font-size: $font-size-h4
-  // font-size: $font-size-h5
-  // box-shadow: 0 0 40px 40px $color-second inset, 0 0 0 0 $color-second
-  // transition: all 300ms ease-in-out
-  // border-radius: 10px
-  // &:hover
-  //   box-shadow: 0 0 4px 0 darken($color-second, 5%) inset, 0 0 0px 1px darken($color-second, 5%)
-  //   background-color: #fff
-  //   color: darken($color-second, 5%)
-  // &:active
-  //   box-shadow: 0 0 10px 0 darken($color-second, 15%) inset, 0 0 5px 2px darken($color-second, 15%)
+  background-color: #4caf50 //green
+  color: #fff
+  padding: 5px
+  text-transform: uppercase
+  margin: 20px auto 10px
+  &:hover
+    background-color: lighten(#4caf50, 5%)
+  &:disabled
+    background-color: lightgrey
+    color: grey

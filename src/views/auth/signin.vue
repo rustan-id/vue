@@ -1,196 +1,148 @@
 <template>
-	<div class="signin">
-		<h1>Войти</h1>
-		<form @submit.prevent = "onSubmit"
-		      method="post"
-		     
-		      action=""
-		      class="signin__form">		  
-	    <label for="email">Адрес электропочты</label>
-	    <input type="email"
-	           placeholder="ivanov@gmail.com"
-	           id="email"
-	           class="smeta__mail"
-	           v-model='email'
-	           minlength="10" 
-	           >
-	    <label for="password">Пароль</label>	
-	    <input type="password"
-	           placeholder="password" 
-	           id="password"
-	           class="smeta__password"
-	           v-model='password'
-	           minlength="1" 
-	           >	
-	    <p class="error" v-if="errors.length">
-        <b>Заполните, пожалуйста, недостающие поля:</b>
-	      <ul>
-	        <li v-for="error in errors">{{ error }}</li>
-	      </ul>
-	    </p>
-	    <!-- :disabled="isDisable()" -->
-	    <!-- <router-link to="/donors-shetinina"> -->
-	    <button type="submit"                          
-	            class="button button--details"           
-	            >
-	            <router-link to="/donors-shetinina">
-							Войти(список)					
-					    </router-link>		  
-		  </button>	
-		  <!-- <button type="submit"                          
-	            class="button button--details"
-	            v-if="auth" 
-	            >     	                   
-			  Авторизован
-		  </button>	 -->
-		  <!-- </router-link> -->
-		  <!-- <donors-shetinina></donors-shetinina>	   -->
-		</form>		
-		
-	</div>	
+  <div class="signin">
+    <h1>Sign in</h1>
+    <v-form @submit.prevent = "onSubmit"
+      v-model="valid"
+      method="post"
+      action="/submit"
+      lazy-validation
+     >
+      <v-text-field
+        type="email"
+        :rules="emailRules"
+        label="Email"
+        id="email"
+        v-model='email'
+        required
+        >
+      </v-text-field>
+      <v-text-field
+        :type="passwordType"
+        :rules="passwordRules"
+        label="Password"
+        id="password"
+        v-model='password'
+        :append-icon="hidePassword ? 'visibility_off' : 'visibility'"
+        @click:append="hidePassword = !hidePassword"
+        required>
+      </v-text-field>
+
+      <button :disabled="!valid"
+               type="submit"
+               class="city__btn"
+               tag="button">
+             Sign in
+      </button>
+
+      <v-alert
+        dismissible
+        error
+        @input='onDismissed'
+        :value="true"
+        class="alert__error"
+        v-if="error"
+        >
+        Enter a valid email address and password
+      </v-alert>
+    </v-form>
+    <span @click="forgotPass" class="forgot__question">Forgot your password?</span>
+    <p v-if="forgot">Enter the email address associated with your account, we will send to you recovery link</p>
+    <v-text-field
+        type="email"
+        :rules="emailRules"
+        label="Email"
+        v-if="forgot"
+        v-model='email'
+        required
+        >
+    </v-text-field>
+    <button v-if="forgot"
+            @click="resetPass"
+            class="city__btn"
+            >
+          Send
+    </button>
+
+    <v-alert
+      dismissible
+      error
+      :value="true"
+      v-if="resetError"
+      >
+      We're sorry. We weren't able to identify you given the information provided.
+    </v-alert>
+    <v-alert
+      dismissible
+      type="success"
+      :value="true"
+      v-if="sent"
+      >
+      Recovery link is sent to your email adress
+    </v-alert>
+  </div>
 </template>
 
 <script>
-  // import firebase from 'firebase'
-  // import store from "../../store/store"
-  // import Vuex from "vuex"
-  // import axios from '../../axios-auth'
-
-  // import {mapActions} from "vuex";
   export default {
-
-     
-   //  computed: {
-   //  	list() {
-   //      return this.$store.getters.list;
-   //    }
-	  // },
-	  data() {	  	
-	  	return {
-	  		errors: [],
-	  		email: '',
-	  		password: '',
-	  		authR: false
-	  		// isShow: true,
-	  		// isShown: false
-	  	}
-	  },
-	  computed: {
-  		// auth() {
-    //     return this.$store.getters.isAuthenticated
-    //   },
-      cusers () {
-      	return this.$store.getters.gusers
+    data() {
+      return {
+        forgot: false,
+        password: '',
+        hidePassword: true,
+        valid: true,
+        donation: null,
+        passwordRules: [
+          v => !!v || 'Enter your password',
+          v => (v && v.length >= 6) || 'Password must be at least 6 characters'
+        ],
+        emailRules: [
+          v => !!v || 'Enter your email',
+          v => /.+@.+/.test(v) || 'Enter a valid email address',
+          v => (v && v.length >= 8) || 'Enter a valid email address'
+        ],
+        errors: [],
+        email: ''
       }
     },
-	  watch: {
-	  	cusers (value) {
-	  		if (value !== null && value !== undefined) {
-	  			this.$router.push('/')
-	  			this.authR === true
-
-	  		}
-	  	}
-
-
-
-	  }, 
-		   
     methods: {
-    	// newBut () {
-    	// 	this.authR = true;
-    	// 	return authR;
-    	// 	console.log(authR)
-    	// },
-    	// ...mapActions({
-    	// 	fetchData: 'loaddata'
-    	// }),     	
-      // loadData() {
-      //   this.fetchData();
-      // },
+      forgotPass() {
+        this.forgot = !this.forgot
+      },
+      resetPass() {
+        const email = this.email
+        this.$store.dispatch('resetPassword', email)
+      },
+      onDismissed() {
+        this.$store.dispatch('clearError')
+      },
       onSubmit() {
-      	// this.isShown = true;
-      	// this.isShow = false;
-      	const formData = {  
-      	  // donation: this.donation,
-         //  pseudo: this.pseudo,
-         //  tel: this.tel,
+        const formData = {
           email: this.email,
           password: this.password
-          // confirmPassword: this.confirmPassword,
         }
         console.log(formData)
         this.$store.dispatch('login', {email: formData.email, password: formData.password})
-        // .then(auth => {
-        // 		alert("logged");
-        // 		this.$router.go({path: this.$router.path})
-        // 	}
-        // );
-        
-        // const isAuth = this.auth;
-      }	          
-	  },
-	   
+      }
+    },
+    computed: {
+      user() {
+        return this.$store.getters.isAuthenticated
+      },
+      error() {
+        return this.$store.getters.error
+      },
+      passwordType() {
+        return this.hidePassword ? 'password' : 'text'
+      },
+      resetError() {
+        return this.$store.getters.resetError
+      },
+      sent() {
+        return this.$store.getters.success
+      }
+    }
   };
-
-
-        // axios.post('/verifyPassword?key=AIzaSyDNMxHSzaOvcKd6E8GasiSoIRXlm7k7x_4', {
-        // 	email: formData.email,
-        // 	password: formData.password,
-        // 	returnSecureToken: true
-        // })
-      	 //  .then(res => console.log(res))
-      	 //  .catch(error => console.log(error))
-
-
-
-      	// this.errors = [];
-      	// let errors = this.errors;
-
-        // let donation = this.list.donation;
-        // let pseudo = this.list.pseudo;
-        // let tel = this.list.tel;
-        // let mail = this.list.mail;
-        // let password = this.list.password;
-
-        // const data = {
-	      	// 	list: this.$store.getters.list
-	      	// };
-        
-
-      	// if (donation && pseudo && tel && mail && password) {
-       //    return true,
-       //    this.list.push({
-	      //   	donation,
-	      //   	pseudo,
-	      //   	tel,
-	      //   	mail,
-	      //   	password
-       //    }),      
-	      	
-	      // 	this.$http.put('data.json', data);    	
-       //  };
-
-	      // if (!mail) {
-	      //   errors.push('Адрес электропочты.');
-	      // }	
-	      // if (!password) {
-	      //   errors.push('Пароль.');
-	      // }	
-
 </script>
 
-<style lang="sass" scoped>  
-  @import "../../sass/_mixins.sass"
-  @import "../../sass/_variables.sass"
-  @import "../../sass/_base.sass"
-  @import "../../sass/_buttons.sass"
-  // @import "../../sass/_project.sass"
-  @import "../../sass/_signup.sass"
-
-  button .button--details
-  	display: block
-  h1
-  	margin-top: 100px
-
+<style lang="sass" scoped>
 </style>

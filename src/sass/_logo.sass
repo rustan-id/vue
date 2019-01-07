@@ -1,0 +1,36 @@
+.logo
+  position: relative
+  display: flex
+  justify-content: space-between
+  height: 100%
+  &::after
+    position: absolute
+    content: ""
+    top: 5px
+    right: -15px
+    width: 13px
+    height: 13px
+    border-radius: 50%
+    background-color: $color-dark
+  &:hover::after
+    background-color: $color-main
+.header__logo
+  display: block
+  position: relative
+  width: 34px
+  height: 34px
+  align-self: center
+  margin-left: 10px
+.logo__link
+  display: block
+  font-style: italic
+  font-size: $font-size-h5
+  font-weight: 500
+  margin: 0 auto
+  width: 98%
+  align-self: center
+  transform: rotateZ(-20deg)
+  cursor: pointer
+  color: $color-dark
+  @include mobile
+    display: none
