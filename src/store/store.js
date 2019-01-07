@@ -212,7 +212,6 @@ const store = new Vuex.Store({
     },
     resetPassword({commit}, payload) {
       firebase.auth().sendPasswordResetEmail(payload).then(function() {
-        console.log("reset link is sent")
         commit('sentSuccess')
       }).catch(function(error) {
         commit('resetError', error)

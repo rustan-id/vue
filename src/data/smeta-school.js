@@ -1,7 +1,7 @@
 export default
   [
     {
-      name: "Basketball board, items",
+      name: "Basketball board, item",
       num: 1,
       price: 150
     },

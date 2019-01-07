@@ -10,10 +10,8 @@
           <p>The project will get into realization in case the necessary sum of donations is raised and each of the participants agreed to final project plan</p>
         </article>
         <div class="about__row-img about__row-img--1">
-          <img src="./../../img/cards/01.jpg" alt="street">
         </div>
         <div class="about__row-img about__row-img--2">
-          <img src="./../../img/cards/3.jpg" alt="street">
         </div>
         <article class="about__row-desc">
           <h5>Preliminary reporting</h5>
@@ -22,10 +20,8 @@
           <p>Every donation can be seen on the site immediatly after his donation has been initilized. In a such way, each participant can check if he is in the list of donations and participants and get persuaded that his <strong>donation is acounted</strong></p>
         </article>
         <div class="about__row-img about__row-img--3">
-          <img src="./../../img/cards/2.jpg" alt="street">
         </div>
         <div class="about__row-img about__row-img--4">
-          <img src="./../../img/cards/6.jpg" alt="street">
         </div>
         <article class="about__row-desc">
           <h5>Final reporting</h5>

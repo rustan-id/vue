@@ -32,7 +32,6 @@ import Footer from './components/footer/Footer.vue'
 import Donors from './views/donorsPage/Donors.vue'
 import signup from './views/auth/signup.vue'
 import signin from './views/auth/signin.vue'
-import colors from 'vuetify/es5/util/colors'
 
 Vue.use(Vuetify)
 

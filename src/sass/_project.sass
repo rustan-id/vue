@@ -29,21 +29,22 @@
     text-align: center
     color: $color-dark
     text-transform: uppercase
-  &:first-child
-    .project__img
-      img
-        align-self: center
 .project__img
-  display: flex
   height: 250px
-  overflow: hidden
-  img
-    align-self: flex-end
+  &--basket-old
+    background: url("img/basket-old-2.jpg") no-repeat 0 center
+    background-size: cover
+  &--basket
+    background: url("img/basket2.jpg") no-repeat 0 center
+    background-size: cover
+  &--before-bench
+    background: url("img/before-bench.jpg") no-repeat 0 center
+    background-size: cover
+  &--bench
+    background: url("img/bench.jpg") no-repeat 0 bottom
+    background-size: cover
   @include mobile-tab
     height: 200px
-    &--basket
-      img
-        align-self: center
 .project__smeta
   display: table
   @include container ($col-12, $col-11, $col-9, $max-width: 900px)

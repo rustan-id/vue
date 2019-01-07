@@ -6,14 +6,12 @@
     <div class="project__images">
       <div class="project__image">
         <p>Now</p>
-        <div class="project__img">
-          <img src="../../img/before-bench.jpg" alt="teacher's illustration"/>
+        <div class="project__img project__img--before-bench">
         </div>
       </div>
       <div class="project__image">
         <p>Project Preview</p>
-        <div class="project__img">
-          <img src="../../img/bench.jpg" alt="teacher's illustration">
+        <div class="project__img project__img--bench">
         </div>
       </div>
     </div>

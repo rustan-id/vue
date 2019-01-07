@@ -208,7 +208,6 @@
           password,
           selected
         }
-        console.log(formData)
         this.$store.dispatch('signup', formData)
       }
     },
