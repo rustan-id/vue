@@ -13,11 +13,6 @@ import '@fortawesome/fontawesome-free/css/all.css'
 Vue.config.productionTip = false
 
 axios.defaults.baseURL = 'https://vue-city.firebaseio.com'
-// const regInterceptor = axios.interceptors.request.use(config => {
-//   console.log('Request Interceptor', config)
-//   return config
-// })
-// axios.interceptors.request.eject(regInterceptor)
 
 import Header from './components/header/Header.vue'
 import PageMain from './views/mainPage/PageMain.vue'

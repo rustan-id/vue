@@ -9,11 +9,6 @@
 <script>
 import WebFontLoader from 'webfontloader'
   export default {
-    // methods: {
-    //   setFontLoaded () {
-    //     this.$emit('font-loaded')
-    //   }
-    // },
     computed: {
       auth() {
         return this.$store.getters.isAuthenticated !== null && this.$store.getters.isAuthenticated !== undefined
